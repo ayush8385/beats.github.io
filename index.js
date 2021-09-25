@@ -102,7 +102,7 @@ function onPageLoad(){
 function handleRedirect(){
     let code =getCode();
     fetchAccessToken(code);
-    window.history.pushState("","",'http://127.0.0.1:5501/index.html');
+    window.history.pushState("","",'https://ayush8385.github.io/beats.github.io/');
 }
 
 function fetchAccessToken(code){
@@ -111,7 +111,7 @@ function fetchAccessToken(code){
     client_secret ='c1718e179b3a42d3af249d76710bd7ca';
     let url = 'grant_type=authorization_code';
     url+='&code='+code;
-    url+='&redirect_uri='+encodeURI('http://127.0.0.1:5501/index.html');
+    url+='&redirect_uri='+encodeURI('https://ayush8385.github.io/beats.github.io/');
     url+='&client_id='+client_id;
     url+='&client_secret='+client_secret;
 
@@ -171,7 +171,7 @@ function requestAuth(){
 
     url+='?client_id='+client_id;
     url+='&response_type=code';
-    url+='&redirect_uri='+encodeURI('http://127.0.0.1:5501/index.html');
+    url+='&redirect_uri='+encodeURI('https://ayush8385.github.io/beats.github.io/');
     url+='&show-dialogue=true';
     url += "&scope=user-read-private user-read-email user-modify-playback-state user-read-playback-position user-library-read streaming user-read-playback-state user-read-recently-played playlist-read-private";
     window.location.href=url;
