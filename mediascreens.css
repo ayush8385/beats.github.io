@@ -1,0 +1,162 @@
+@media screen and (max-width:700px) {
+    body{
+        padding: 0;
+    }
+
+    #main_left{
+        width: 100%;
+    }
+    #main_right{
+        display: none;
+    }
+
+    header nav{
+        display: none;
+    }
+
+    .music_box{
+        border-radius: 0;
+    }
+
+    #mob{
+        font-size: 14px;
+        border: 1px solid grey;
+        box-shadow: 0px 0px 40px 1px rgb(46, 46, 46);
+        width: 400px;
+        margin: auto 40px;
+        border-radius: 7px;
+        color: white;
+        outline: 0;
+        height: 36px;
+        background-color:rgb(29, 29, 29);
+        visibility: visible;
+    }
+
+    .horizontal-list li {
+        display: block;
+    }
+    
+
+    #mylogo img{
+        visibility: hidden;
+    }
+
+    .container{
+        visibility: visible;
+    }
+
+    #releases{
+        margin-right: 120px;
+    }
+
+    footer{
+        border-radius: 0;
+    }
+    
+    #music_details{
+        display: none;
+
+        
+    }
+
+    #music_controls{
+        display: flex;
+        justify-content: center;
+    }
+
+    #music_controls>div{
+        margin: 0px 20px;
+    }
+
+    #mob_music_details{
+        
+        display: flex;
+        flex-direction: row;
+        padding: 0px 12px;
+        justify-content: space-between;
+        
+    }
+    
+
+    #artist_detail{
+        
+        display: flex;
+        align-items: center
+    }
+
+    footer #song_name{
+        text-align: center;
+    }
+
+    #artist_image{
+        width: 60px;
+        height: 60px;
+    
+        /* animation: artist_animate 2.5s linear infinite; */
+    }
+
+    #artist_image img{
+        width: 55px;
+        height: 55px;
+    }
+
+    #up_queue{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        animation: moveupdown 1.1s linear infinite;
+    }
+
+    @keyframes moveupdown {
+        0%, 100% {
+            bottom: -5px;
+        }
+        50% {
+            bottom: 12px;
+        }
+        
+    }
+
+    .artist_details{
+        display: none;
+    }
+
+    .mob_artist_details{
+        position: sticky;
+        background-color: rgba(46, 45, 45, 0.692);
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .mob_artist_details img{
+        height: 170px;
+        width:170px;
+        border-radius: 120px;
+     
+    }
+
+    .artist_about{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 14px;
+        text-align: center;
+    }
+
+    #play{
+        background:linear-gradient(45deg,rgb(240, 150, 17),rgb(44, 209, 44));
+        outline: 0;
+        border: 0;
+        margin: 10px;
+        border-radius: 10px;
+        font-size: 16px;
+        color: white;
+        padding: 10px 50px;
+    }
+
+}

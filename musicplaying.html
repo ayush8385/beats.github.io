@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beats</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="musicplayer.css">
+    <link rel="stylesheet" href="mediascreens.css">
+
+    <script src="https://kit.fontawesome.com/2d9b67a497.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+</head>
+<body onload="loadData()">
+    <div class="music_box">
+        <header>
+            <div id="logo" onclick="location.href='index.html'">
+                <img src="logo.jpg">
+                <p style="color: wheat; font-size: medium;margin-top: -4px;">Beats</p>
+            </div>
+            <nav>
+                <ul style="margin-top: 13px;">   
+                    <li>
+                        <a href="#favorites"> Favourites </a>
+                    </li>
+                    <li>
+                        <a href="#playlists"> Playlists </a>
+                    </li>
+            
+                    <li style="float: right; margin-top: 5px; position: relative;">
+                        <i style="font-size: 20px;position: absolute;top: 0; color: white;" class="fa fa-bell" aria-hidden="true"></i>
+                        <div style="width: 7px; height: 7px;position: absolute; left: 2px; border-radius: 20px;background-color: red;"></div>
+
+                    </li>
+                    <li style="float: right;">
+                        <input id="searchbar" type="text" placeholder="Search..">
+                    </li>    
+                </ul>
+            </nav>
+            <input type="text" id="mob" placeholder="Search...">
+            <div id="mylogo">
+                <img src="myimage.jpg">
+                <div class="container" onclick="myFunction()">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+
+            <div class="mobile_nav">
+                <nav>
+                    <ul class="mob-horizontal-list text-center nav-menu">
+                        <li onclick="myFunction()">
+                            <a href="#"> My Account </a>
+                        </li>
+                        <li onclick="myFunction()">
+                            <a href="#skills"> PlayLists </a>
+                        </li>
+                        <li onclick="myFunction()">
+                            <a href="#experience">Favourites</a>
+                        </li>
+                        <li onclick="myFunction()">
+                            <a href="#about">Notifications</a>
+                        </li>
+                        <li onclick="myFunction()">
+                            <a href="#contact">Contact</a>
+                        </li>
+                    </ul>
+        
+                    
+                </nav>
+            </div>
+
+            <div id="main_left">
+                <div class="artist_details">
+                   
+                   
+                </div>
+                <div class="mob_artist_details">
+                    <img src="artists/1.webp">
+                    <div class="artist_about">
+                        <div id="title">
+                            <p>Arijit Singh</p>
+                        </div>
+                        <div>
+                            <button id="play">Play All</button>
+                        </div>
+                        <div id="tracks">
+                            <p>245 Tracks | 25 Albums</p>
+                        </div>
+                    </div> 
+                </div>
+                <div class="artist_hits">
+                    <div id="artist_music">
+                        <div id="queue_song_img" style="display: flex;justify-content: space-around; align-items: center;">
+                            <p style="font-size: 13px;">01</p>
+                            <img src="releases/1.webp" style="margin-left: 10px;">
+                            <div style="margin-left: 16px;">
+                                <p style="font-size: 16px; color: rgb(214, 214, 214);">Worry About Us</p>
+                                <p style="font-size: 13px; color: rgb(168, 164, 164);">Rose Lowe</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <p style="font-size: 13px; color: rgb(196, 194, 194);">5:35</p>
+                        </div>
+                        <div id="queue_fav" style="margin-right: 10px;">
+                            <i class="fa fa-heart-o" style="color: rgb(189, 188, 188);" aria-hidden="true"></i>
+                            <i class="fa fa-plus" style="margin-left: 18px; color: rgb(189, 188, 188);" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div id="artist_music">
+                        <div id="queue_song_img" style="display: flex;justify-content: space-around; align-items: center;">
+                            <p style="font-size: 13px;">01</p>
+                            <img src="releases/1.webp" style="margin-left: 10px;">
+                            <div style="margin-left: 16px;">
+                                <p style="font-size: 16px; color: rgb(214, 214, 214);">Worry About Us</p>
+                                <p style="font-size: 13px; color: rgb(168, 164, 164);">Rose Lowe</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <p style="font-size: 13px; color: rgb(196, 194, 194);">5:35</p>
+                        </div>
+                        <div id="queue_fav" style="margin-right: 10px;">
+                            <i class="fa fa-heart-o" style="color: rgb(189, 188, 188);" aria-hidden="true"></i>
+                            <i class="fa fa-plus" style="margin-left: 18px; color: rgb(189, 188, 188);" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div id="artist_music">
+                        <div id="queue_song_img" style="display: flex;justify-content: space-around; align-items: center;">
+                            <p style="font-size: 13px;">01</p>
+                            <img src="releases/1.webp" style="margin-left: 10px;">
+                            <div style="margin-left: 16px;">
+                                <p style="font-size: 16px; color: rgb(214, 214, 214);">Worry About Us</p>
+                                <p style="font-size: 13px; color: rgb(168, 164, 164);">Rose Lowe</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <p style="font-size: 13px; color: rgb(196, 194, 194);">5:35</p>
+                        </div>
+                        <div id="queue_fav" style="margin-right: 10px;">
+                            <i class="fa fa-heart-o" style="color: rgb(189, 188, 188);" aria-hidden="true"></i>
+                            <i class="fa fa-plus" style="margin-left: 18px; color: rgb(189, 188, 188);" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div id="artist_music">
+                        <div id="queue_song_img" style="display: flex;justify-content: space-around; align-items: center;">
+                            <p style="font-size: 13px;">01</p>
+                            <img src="releases/1.webp" style="margin-left: 10px;">
+                            <div style="margin-left: 16px;">
+                                <p style="font-size: 16px; color: rgb(214, 214, 214);">Worry About Us</p>
+                                <p style="font-size: 13px; color: rgb(168, 164, 164);">Rose Lowe</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <p style="font-size: 13px; color: rgb(196, 194, 194);">5:35</p>
+                        </div>
+                        <div id="queue_fav" style="margin-right: 10px;">
+                            <i class="fa fa-heart-o" style="color: rgb(189, 188, 188);" aria-hidden="true"></i>
+                            <i class="fa fa-plus" style="margin-left: 18px; color: rgb(189, 188, 188);" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div id="artist_music">
+                        <div id="queue_song_img" style="display: flex;justify-content: space-around; align-items: center;">
+                            <p style="font-size: 13px;">01</p>
+                            <img src="releases/1.webp" style="margin-left: 10px;">
+                            <div style="margin-left: 16px;">
+                                <p style="font-size: 16px; color: rgb(214, 214, 214);">Worry About Us</p>
+                                <p style="font-size: 13px; color: rgb(168, 164, 164);">Rose Lowe</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <p style="font-size: 13px; color: rgb(196, 194, 194);">5:35</p>
+                        </div>
+                        <div id="queue_fav" style="margin-right: 10px;">
+                            <i class="fa fa-heart-o" style="color: rgb(189, 188, 188);" aria-hidden="true"></i>
+                            <i class="fa fa-plus" style="margin-left: 18px; color: rgb(189, 188, 188);" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div id="artist_music">
+                        <div id="queue_song_img" style="display: flex;justify-content: space-around; align-items: center;">
+                            <p style="font-size: 13px;">01</p>
+                            <img src="releases/1.webp" style="margin-left: 10px;">
+                            <div style="margin-left: 16px;">
+                                <p style="font-size: 16px; color: rgb(214, 214, 214);">Worry About Us</p>
+                                <p style="font-size: 13px; color: rgb(168, 164, 164);">Rose Lowe</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <p style="font-size: 13px; color: rgb(196, 194, 194);">5:35</p>
+                        </div>
+                        <div id="queue_fav" style="margin-right: 10px;">
+                            <i class="fa fa-heart-o" style="color: rgb(189, 188, 188);" aria-hidden="true"></i>
+                            <i class="fa fa-plus" style="margin-left: 18px; color: rgb(189, 188, 188);" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div id="artist_music">
+                        <div id="queue_song_img" style="display: flex;justify-content: space-around; align-items: center;">
+                            <p style="font-size: 13px;">08</p>
+                            <img src="releases/1.webp" style="margin-left: 10px;">
+                            <div style="margin-left: 16px;">
+                                <p style="font-size: 16px; color: rgb(214, 214, 214);">Worry About Us</p>
+                                <p style="font-size: 13px; color: rgb(168, 164, 164);">Rose Lowe</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <p style="font-size: 13px; color: rgb(196, 194, 194);">5:35</p>
+                        </div>
+                        <div id="queue_fav" style="margin-right: 10px;">
+                            <i class="fa fa-heart-o" style="color: rgb(189, 188, 188);" aria-hidden="true"></i>
+                            <i class="fa fa-plus" style="margin-left: 18px; color: rgb(189, 188, 188);" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div id="main_queue">
+                <div class="queue_title">
+                    <h2 >Queue</h2>
+                    <div style="position: relative;" onclick="openQueue()">
+                        <span style="color: aquamarine; font-weight: 500px;">Queue</span>
+                        <i class="fa fa-angle-down" style="color: aquamarine;" aria-hidden="true"></i>
+                        
+                        <div id="queue_dropmenu" style="visibility: hidden; position: absolute; font-size: 14px; top: 25px; right: -10px; display: flex;flex-direction: column; background-color: rgb(32, 32, 32);align-items: flex-start;">    
+                            <div class="drop-item">
+                                <p>PlayLists</p>
+                            </div>
+                            
+                            <div class="drop-item">
+                                <p>Favorite Songs</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="queues">
+                    <div id="music">
+                        <div id="number">
+                            <p>01</p>
+                        </div>
+                        <div id="queue_song_img">
+                           <img src="releases/2.jpg">
+                        </div>
+                        <div id="queue_song_detail">
+                            <div id="queue_song_name">
+                                <p>Worry About Us</p>
+                            </div>
+                            <div id="artist_name">
+                                <p>Rose Lowe</p>
+                            </div>
+                        </div>
+                        <div id="queue_fav">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div id="music">
+                        <div id="number">
+                            <p>02</p>
+                        </div>
+                        <div id="queue_song_img">
+                           <img src="releases/4.jpg">
+                        </div>
+                        <div id="queue_song_detail">
+                            <div id="queue_song_name">
+                                <p>Worry About Us</p>
+                            </div>
+                            <div id="artist_name">
+                                <p>Rose Lowe</p>
+                            </div>
+                        </div>
+                        <div id="queue_fav">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div id="music">
+                        <div id="number">
+                            <p>03</p>
+                        </div>
+                        <div id="queue_song_img">
+                           <img src="releases/3.jpg">
+                        </div>
+                        <div id="queue_song_detail">
+                            <div id="queue_song_name">
+                                <p>Worry About Us</p>
+                            </div>
+                            <div id="artist_name">
+                                <p>Rose Lowe</p>
+                            </div>
+                        </div>
+                        <div id="queue_fav">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div id="music">
+                        <div id="number">
+                            <p>04</p>
+                        </div>
+                        <div id="queue_song_img">
+                           <img src="releases/8.webp">
+                        </div>
+                        <div id="queue_song_detail">
+                            <div id="queue_song_name">
+                                <p>Worry About Us</p>
+                            </div>
+                            <div id="artist_name">
+                                <p>Rose Lowe</p>
+                            </div>
+                        </div>
+                        <div id="queue_fav">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div id="music">
+                        <div id="number">
+                            <i class="fas fa-music    " style="color: aquamarine;"></i>
+                        </div>
+                        <div id="queue_song_img">
+                           <img src="releases/6.jpg">
+                        </div>
+                        <div id="queue_song_detail">
+                            <div id="queue_song_name">
+                                <p>Worry About Us</p>
+                            </div>
+                            <div id="artist_name">
+                                <p>Rose Lowe</p>
+                            </div>
+                        </div>
+                        <div id="queue_fav">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div id="music">
+                        <div id="number">
+                            <p>06</p>
+                        </div>
+                        <div id="queue_song_img">
+                           <img src="releases/7.webp">
+                        </div>
+                        <div id="queue_song_detail">
+                            <div id="queue_song_name">
+                                <p>Worry About Us</p>
+                            </div>
+                            <div id="artist_name">
+                                <p>Rose Lowe</p>
+                            </div>
+                        </div>
+                        <div id="queue_fav">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div id="music">
+                        <div id="number">
+                            <p>07</p>
+                        </div>
+                        <div id="queue_song_img">
+                           <img src="releases/1.webp">
+                        </div>
+                        <div id="queue_song_detail">
+                            <div id="queue_song_name">
+                                <p>Worry About Us</p>
+                            </div>
+                            <div id="artist_name">
+                                <p>Rose Lowe</p>
+                            </div>
+                        </div>
+                        <div id="queue_fav">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div id="music">
+                        <div id="number">
+                            <p>08</p>
+                        </div>
+                        <div id="queue_song_img">
+                           <img src="releases/1.webp">
+                        </div>
+                        <div id="queue_song_detail">
+                            <div id="queue_song_name">
+                                <p>Worry About Us</p>
+                            </div>
+                            <div id="artist_name">
+                                <p>Rose Lowe</p>
+                            </div>
+                        </div>
+                        <div id="queue_fav">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div id="music">
+                        <div id="number">
+                            <p>09</p>
+                        </div>
+                        <div id="queue_song_img">
+                           <img src="releases/1.webp">
+                        </div>
+                        <div id="queue_song_detail">
+                            <div id="queue_song_name">
+                                <p>Worry About Us</p>
+                            </div>
+                            <div id="artist_name">
+                                <p>Rose Lowe</p>
+                            </div>
+                        </div>
+                        <div id="queue_fav">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="main_right">
+                <div class="similar_artists">
+                    <div id="similar_title">
+                        <h2>Similar Artists</h2>
+                    </div>
+                    <div id="similar_box">
+                        <div id="artist_music" style="margin:0; padding: 0;">
+                            <div>
+                                <img style="width: 100px; height: 100px;" src="releases/1.webp">
+                                <!-- <div class="play-button">
+                                    <i class="fas fa-play" style="width:100%; height:100%; display:inline-block"></i>
+                                </div> -->
+                            </div>
+                            <div style="display: flex; align-items: center;">
+                                <div style="margin-left: 16px;">
+                                    <p class="release_song_name">Worry About Us</p>
+                                    <p class="release_date">Rose Lowe</p>
+                                </div>
+                                
+                            </div>
+                            
+                            <div class="options">
+                                <label for="latest-release-checkbox"><i class="fas fa-ellipsis-h"></i></label>
+                                <input type="checkbox" id="latest-release-checkbox">
+                                <div class="latest-release-dropdown">
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-play-circle"></i> <a href="Single Playlist Screen.html">Play
+                                                Now</a></p>
+                                    </div>
+                                    
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-list-ul"></i> Add to Queue</p>
+                                    </div>
+                                    
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-music"></i> Add to playlist</p>
+                                    </div>
+                                    
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-info-circle"></i> Get Info</p>
+                                    </div>
+                                </div>
+                                <p>
+                                    5:05
+                                </p>
+                            </div>
+                        </div>
+
+                        <div id="artist_music" style="margin:0; padding: 0;">
+                            <div>
+                                <img style="width: 100px; height: 100px;" src="releases/1.webp">
+                                <!-- <div class="play-button">
+                                    <i class="fas fa-play" style="width:100%; height:100%; display:inline-block"></i>
+                                </div> -->
+                            </div>
+                            <div style="display: flex; align-items: center;">
+                                <div style="margin-left: 16px;">
+                                    <p class="release_song_name">Worry About Us</p>
+                                    <p class="release_date">Rose Lowe</p>
+                                </div>
+                                
+                            </div>
+                            
+                            <div class="options">
+                                <label for="latest-release-checkbox"><i class="fas fa-ellipsis-h"></i></label>
+                                <input type="checkbox" id="latest-release-checkbox">
+                                <div class="latest-release-dropdown">
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-play-circle"></i> <a href="Single Playlist Screen.html">Play
+                                                Now</a></p>
+                                    </div>
+                                    
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-list-ul"></i> Add to Queue</p>
+                                    </div>
+                                    
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-music"></i> Add to playlist</p>
+                                    </div>
+                                    
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-info-circle"></i> Get Info</p>
+                                    </div>
+                                </div>
+                                <p>
+                                    5:05
+                                </p>
+                            </div>
+                        </div>
+                        <div id="artist_music" style="margin:0; padding: 0;">
+                            <div>
+                                <img style="width: 100px; height: 100px;" src="releases/1.webp">
+                                <!-- <div class="play-button">
+                                    <i class="fas fa-play" style="width:100%; height:100%; display:inline-block"></i>
+                                </div> -->
+                            </div>
+                            <div style="display: flex; align-items: center;">
+                                <div style="margin-left: 16px;">
+                                    <p class="release_song_name">Worry About Us</p>
+                                    <p class="release_date">Rose Lowe</p>
+                                </div>
+                                
+                            </div>
+                            
+                            <div class="options">
+                                <label for="latest-release-checkbox"><i class="fas fa-ellipsis-h"></i></label>
+                                <input type="checkbox" id="latest-release-checkbox">
+                                <div class="latest-release-dropdown">
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-play-circle"></i> <a href="Single Playlist Screen.html">Play
+                                                Now</a></p>
+                                    </div>
+                                    
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-list-ul"></i> Add to Queue</p>
+                                    </div>
+                                    
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-music"></i> Add to playlist</p>
+                                    </div>
+                                    
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-info-circle"></i> Get Info</p>
+                                    </div>
+                                </div>
+                                <p>
+                                    5:05
+                                </p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="recently_played">
+                    <div id="similar_title">
+                        <h2>Recently Played</h2>
+                    </div>
+                    <div id="similar_box" id="queues">
+                        <div id="artist_music">
+                            <div id="queue_song_img" style="display: flex;justify-content: space-around; align-items: center;">
+                                <p style="font-size: 13px;">01</p>
+                                <img src="releases/1.webp" style="margin-left: 10px;">
+                                
+                            </div>
+                            <div style="display: flex; align-items: center;">
+                                <div style="margin-left: 16px;">
+                                    <p style="font-size: 16px; color: rgb(214, 214, 214);">Worry About Us</p>
+                                    <p style="font-size: 13px; color: rgb(168, 164, 164);">Rose Lowe</p>
+                                </div>
+                            </div>
+                            <div id="queue_fav">
+                                <i class="fa fa-heart-o" style="color: rgb(189, 188, 188);" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div id="artist_music">
+                            <div id="queue_song_img" style="display: flex;justify-content: space-around; align-items: center;">
+                                <p style="font-size: 13px;">01</p>
+                                <img src="releases/1.webp" style="margin-left: 10px;">
+                                
+                            </div>
+                            <div style="display: flex; align-items: center;">
+                                <div style="margin-left: 16px;">
+                                    <p style="font-size: 16px; color: rgb(214, 214, 214);">Worry About Us</p>
+                                    <p style="font-size: 13px; color: rgb(168, 164, 164);">Rose Lowe</p>
+                                </div>
+                            </div>
+                            <div id="queue_fav">
+                                <i class="fa fa-heart-o" style="color: rgb(189, 188, 188);" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div id="artist_music">
+                            <div id="queue_song_img" style="display: flex;justify-content: space-around; align-items: center;">
+                                <p style="font-size: 13px;">01</p>
+                                <img src="releases/1.webp" style="margin-left: 10px;">
+                                
+                            </div>
+                            <div style="display: flex; align-items: center;">
+                                <div style="margin-left: 16px;">
+                                    <p style="font-size: 16px; color: rgb(214, 214, 214);">Worry About Us</p>
+                                    <p style="font-size: 13px; color: rgb(168, 164, 164);">Rose Lowe</p>
+                                </div>
+                            </div>
+                            <div id="queue_fav">
+                                <i class="fa fa-heart-o" style="color: rgb(189, 188, 188);" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div id="artist_music">
+                            <div id="queue_song_img" style="display: flex;justify-content: space-around; align-items: center;">
+                                <p style="font-size: 13px;">01</p>
+                                <img src="releases/1.webp" style="margin-left: 10px;">
+                                
+                            </div>
+                            <div style="display: flex; align-items: center;">
+                                <div style="margin-left: 16px;">
+                                    <p style="font-size: 16px; color: rgb(214, 214, 214);">Worry About Us</p>
+                                    <p style="font-size: 13px; color: rgb(168, 164, 164);">Rose Lowe</p>
+                                </div>
+                            </div>
+                            <div id="queue_fav">
+                                <i class="fa fa-heart-o" style="color: rgb(189, 188, 188);" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div id="artist_music">
+                            <div id="queue_song_img" style="display: flex;justify-content: space-around; align-items: center;">
+                                <p style="font-size: 13px;">01</p>
+                                <img src="releases/1.webp" style="margin-left: 10px;">
+                                
+                            </div>
+                            <div style="display: flex; align-items: center;">
+                                <div style="margin-left: 16px;">
+                                    <p style="font-size: 16px; color: rgb(214, 214, 214);">Worry About Us</p>
+                                    <p style="font-size: 13px; color: rgb(168, 164, 164);">Rose Lowe</p>
+                                </div>
+                            </div>
+                            <div id="queue_fav">
+                                <i class="fa fa-heart-o" style="color: rgb(189, 188, 188);" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div id="artist_music">
+                            <div id="queue_song_img" style="display: flex;justify-content: space-around; align-items: center;">
+                                <p style="font-size: 13px;">08</p>
+                                <img src="releases/1.webp" style="margin-left: 10px;">
+                                
+                            </div>
+                            <div style="display: flex; align-items: center;">
+                                <div style="margin-left: 16px;">
+                                    <p style="font-size: 16px; color: rgb(214, 214, 214);">Worry About Us</p>
+                                    <p style="font-size: 13px; color: rgb(168, 164, 164);">Rose Lowe</p>
+                                </div>
+                            </div>
+                            <div id="queue_fav">
+                                <i class="fa fa-heart-o" style="color: rgb(189, 188, 188);" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div id="music_details">
+                <div id="artist_detail">
+                    <div id="artist_image">
+                        <img src="djsnake.jpg">
+                    </div>
+                    <div id="details">
+                        <div id="song_name">
+                            <p>Let Me Love You</p>
+                        </div>
+                        <div id="artist_name">
+                            <p>DJ Snake</p>
+                        </div>
+                    </div>
+                    <div id="opt">
+                        <div id="fav">
+                            <i style="color: rgb(190, 190, 190);" class="fa fa-heart-o" aria-hidden="true"></i>
+                        </div>
+                        <div id="block">
+                            <i style="color: rgb(190, 190, 190);" class="fa fa-ban" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+                <div id="music_playing">
+                    <div id="music_controls">
+                        <div>
+                            <i style="font-size: 22px; color: rgb(179, 178, 178);" class="fas fa-random"></i>
+                        </div>
+                        <div>
+                            <i style="font-size: 22px; color: rgb(190, 190, 190);" class="fa fa-step-backward" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <i style="font-size: 38px; margin-top: -9px; color: whitesmoke" class="fa fa-pause-circle-o" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <i style="font-size: 22px; color: rgb(190, 190, 190);" class="fa fa-step-forward" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <i style="font-size: 22px; color: rgb(190, 190, 190);" class="fas fa-sync    "></i>
+                        </div>
+                    </div>
+                    <div id="music_bars">
+                        <div id="start_time">
+                            <p>1:45</p>
+                        </div>
+                        <div id="bar">
+                            <div id="bar_inside">
+                            </div>
+                            <div id="bar_point">
+                            </div>
+                        </div>
+                        <div id="end_time">
+                            <p>4:56</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="options">
+                    <div>
+                        <i style="color: rgb(190, 190, 190);" class="fas fa-sliders-h"></i>
+                    </div>
+                    <div>
+                        <i style="color: rgb(190, 190, 190);" class="fal fa-computer-speaker"></i>
+                    </div>
+                    <div>
+                        <i style="color: rgb(190, 190, 190);" class="fas fa-volume-up"></i>
+                    </div>
+                    <div id="volume_bar">
+                        <div id="vol">
+                        </div>
+                        <div id="vol_point">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="mob_music_details">
+                <div id="artist_detail">
+                    <div id="artist_image">
+                        <img src="djsnake.jpg">
+                    </div>
+                </div>
+                <div id="music_playing">
+                    <div id="song_name">
+                        <p>Let Me Love You</p>
+                    </div>
+                    <div id="music_controls" style="margin-top: 18px;">
+                        <div>
+                            <i style="font-size: 20px; color: rgb(190, 190, 190);" class="fa fa-step-backward" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <i style="font-size: 36px; margin-top: -9px; color: whitesmoke" class="fa fa-pause-circle-o" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <i style="font-size: 20px; color: rgb(190, 190, 190);" class="fa fa-step-forward" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+                <div id="up_queue">
+                    <i onclick="queue(this)" class="fa fa-angle-up"  style="color: white; font-size: 38px;" aria-hidden="true"></i>
+                </div>
+            </div>
+        </footer>
+    </div> 
+
+    <script src="player.js"></script>
+</body>
+</html>

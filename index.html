@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beats</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="mediascreens.css">
+
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <!-- Added fontAwesome icon cdn -->
+    <script src="https://kit.fontawesome.com/2d9b67a497.js" crossorigin="anonymous"></script>
+
+    <!-- Added ajax cdn for jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+    <!-- A black box over the body contains the whole music contents -->
+    <div class="music_box">
+
+        <!-- <div class="mb-3">
+                    <label for="devices" class="form-label">Devices</label>
+                    <select id="devices" class="form-control">
+                    </select>
+                    <input class="btn btn-primary btn-sm mt-3" type="button" onclick="refreshDevices()" value="Refresh Devices">
+                    <input type="button" class="btn btn-dark btn-sm  mt-3" onclick="transfer()" value="Transfer">
+                </div>
+
+                <div class="mb-3">
+                    <label for="playlists" class="form-label">Playlists</label>
+                    <select id="playlists" class="form-control">
+                    </select>
+                    <input class="btn btn-primary btn-sm mt-3" type="button" onclick="refreshPlaylists()" value="Refresh Playlists">
+
+                </div>
+
+                <div class="mb-3">
+                    <label for="tracks" class="form-label">Tracks</label>
+                    <select id="tracks" class="form-control">
+                    </select>
+                    <input class="btn btn-primary btn-sm mt-3" type="button" onclick="fetchTracks()" value="Fetch Tracks">
+                </div>
+
+                <div class="mb-3">
+                    <label for="tracks" class="form-label">Album</label>
+                    <input id="album" class="form-control">
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <input type="button" class="btn btn-dark" onclick="previous()" value="Prev">
+                        <input type="button" class="btn btn-dark" onclick="play()" value="Play">
+                        <input type="button" class="btn btn-dark" onclick="shuffle()" value="Shuffle">
+                        <input type="button" class="btn btn-dark" onclick="pause()" value="Pause">
+                        <input type="button" class="btn btn-dark" onclick="next()" value="Next">
+                    </div>
+                </div>
+
+
+                <div class="row  mt-3">
+                    <div class="col">
+                        <h1> Currently Playing</h1>
+                        <input type="button" class="btn btn-primary btn-sm mt-3" onclick="currentlyPlaying()" value="Refresh Currently Playing">
+                        <div>
+                            <img id="albumImage" src="">
+                            <div id="trackTitle"></div>
+                            <div id="trackArtist"></div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row  mt-3">
+                    <div class="col">
+                        <div id="radioButtons"></div>
+                        <input type="button" class="btn btn-dark" onclick="saveNewRadioButton()" value="Add">
+                    </div>
+                </div> -->
+        <!-- Header of the music which contains navbar and logo and user image -->
+
+        <header>
+            <!-- logo of the website -->
+            <div id="logo">
+                <img src="logo.jpg">
+                <p style="color: wheat; font-size: medium;margin-top: -4px;">Beats</p>
+            </div>
+            <!-- Added navbar here -->
+            <nav>
+                <ul style="margin-top: 13px;">
+                    <li>
+                        <a href="#home" onclick="gotoHome()"> Home </a>
+                    </li>  
+                    <li>
+                        <a href="#favorites"> Favourites </a>
+                    </li>
+                    <li>
+                        <a href="#playlists" onclick="loadPlayLists()"> Playlists </a>
+                    </li>
+            
+                    <li style="float: right; margin-top: 5px; position: relative;">
+                        <i style="font-size: 20px;position: absolute;top: 0; color: white;" class="fa fa-bell" aria-hidden="true"></i>
+                        <div style="width: 7px; height: 7px;position: absolute; left: 2px; border-radius: 20px;background-color: red;"></div>
+
+                    </li>
+                    <li style="float: right;">
+                        <input id="searchbar" type="text" placeholder="Search..">
+                    </li>    
+                </ul>
+            </nav>
+            <!-- Search Bar -->
+            <input type="text" id="mob" placeholder="Search...">
+            <!-- User Image -->
+            <div id="mylogo"  onclick="requestAuth()">
+                <img src="myimage.jpg">
+                <div class="container" onclick="myFunction()">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Section which contains left and right section of music_box -->
+        <main>
+
+            <!-- Navbar for mobile view -->
+            <div class="mobile_nav">
+                <nav>
+                    <ul class="mob-horizontal-list text-center nav-menu">
+                        <li onclick="myFunction()">
+                            <a href="#"> My Account </a>
+                        </li>
+                        <li onclick="myFunction()">
+                            <a href="#skills"> PlayLists </a>
+                        </li>
+                        <li onclick="myFunction()">
+                            <a href="#experience">Favourites</a>
+                        </li>
+                        <li onclick="myFunction()">
+                            <a href="#about">Notifications</a>
+                        </li>
+                        <li onclick="myFunction()">
+                            <a href="#contact">Contact</a>
+                        </li>
+                    </ul>
+        
+                    
+                </nav>
+            </div>
+
+            <div id="playlist">
+                
+            </div>
+
+            <div id="player_view">
+                <div id="top_details">
+                   
+                   
+                </div>
+                <div id="top_tracks">
+                </div>
+            </div>
+
+            <div id="player_main_right">
+                <div class="similar_artists">
+                    <div id="similar_title">
+                        <h2>Similar Artists</h2>
+                    </div>
+                    <div id="similar_box">
+                    
+                    </div>
+                </div>
+                <div class="recently_played">
+                    <div id="similar_title">
+                        <h2>Recently Played</h2>
+                    </div>
+                    <div id="similar_box" id="queues">
+                        <!-- <div id="artist_music">
+                            <div id="queue_song_img" style="display: flex;justify-content: space-around; align-items: center;">
+                                <p style="font-size: 13px;">01</p>
+                                <img src="releases/1.webp" style="margin-left: 10px;">
+                                
+                            </div>
+                            <div style="display: flex; align-items: center;">
+                                <div style="margin-left: 16px;">
+                                    <p style="font-size: 16px; color: rgb(214, 214, 214);">Worry About Us</p>
+                                    <p style="font-size: 13px; color: rgb(168, 164, 164);">Rose Lowe</p>
+                                </div>
+                            </div>
+                            <div id="queue_fav">
+                                <i class="fa fa-heart-o" style="color: rgb(189, 188, 188);" aria-hidden="true"></i>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Left Section of music website -->
+            <div id="main_left">
+                <!-- This is the first horizonta scroll view contains some animated sliders(images) -->
+                <div class="main_slider">
+                    <div class="carousel">                    
+                        <img src="sliders/1.webp">
+                        <img src="sliders/2.webp">
+                        <img src="sliders/3.webp">
+                        <img src="sliders/4.webp">
+                        <img src="sliders/5.webp">
+                    </div>
+                    <!-- <div class="carousel">
+                        <div id="large_thm">
+                            <img src="themes/party.jfif">
+                        </div>
+                        <div id="large_thm">
+                            <img src="themes/electronic.jpeg">
+                        </div>
+                        <div id="large_thm">
+                            <img src="themes/travel.jfif">
+                        </div>
+                    </div> -->
+                </div>
+
+                <!-- This is the latest Release Section of the website -->
+                <div class="latest_releases">
+                    <!-- latest release Heading -->
+                    <p style="margin-left: 28px; font-size: 22px; margin-bottom: 10px;">
+                        Latest Releases
+                    </p>
+                    <!-- Each box in the latest Release Section -->
+                    <div class="latest">
+                        <div id="releases">
+                            <div id="release_img">
+                                <i id="play_btn" class="fa fa-play" aria-hidden="true"></i>
+                                <img src="releases/1.webp">
+                                
+                            </div>
+                            <div class="song-description">
+                                <p class="release_song_name">BellBottom</p>
+                                <p class="release_date">
+                                    Aug,2021
+                                </p>
+                            </div>
+                            
+                            <div class="options">
+                                <label for="latest-release-checkbox"><i class="fas fa-ellipsis-h"></i></label>
+                                <input type="checkbox" id="latest-release-checkbox">
+                                <div class="latest-release-dropdown">
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-play-circle"></i> <a href="Single Playlist Screen.html">Play
+                                                Now</a></p>
+                                    </div>
+                                    
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-list-ul"></i> Add to Queue</p>
+                                    </div>
+                                    
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-music"></i> Add to playlist</p>
+                                    </div>
+                                    
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-info-circle"></i> Get Info</p>
+                                    </div>
+                                </div>
+                                <p>
+                                    5:05
+                                </p>
+                            </div>
+                        </div>
+                        <div id="releases">
+                            <div id="release_img">
+                                
+                                <i id="play_btn" class="fa fa-play" aria-hidden="true"></i>
+                                <img src="releases/2.jpg">
+                            </div>
+                            <div class="song-description">
+                                <p class="release_song_name">BellBottom</p>
+                                <p class="release_date">
+                                    Aug,2021
+                                </p>
+                            </div>
+                            <div class="options">
+                                <label for="latest-release-checkbox2"><i class="fas fa-ellipsis-h"></i></label>
+                                <input type="checkbox" id="latest-release-checkbox2">
+                                <div class="latest-release-dropdown">
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-play-circle"></i> <a href="Single Playlist Screen.html">Play
+                                                Now</a></p>
+                                    </div>
+                                    
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-list-ul"></i> Add to Queue</p>
+                                    </div>
+                                    
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-music"></i> Add to playlist</p>
+                                    </div>
+                                    
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-info-circle"></i> Get Info</p>
+                                    </div>
+                                </div>
+                                <p>
+                                    4:17
+                                </p>
+                            </div>
+                        </div>
+                        <!-- third card -->
+                        <div id="releases">
+                            <div id="release_img">
+                                
+                                <i id="play_btn" class="fa fa-play" aria-hidden="true"></i>
+                                <img src="releases/3.jpg">
+                            </div>
+                            <div class="song-description">
+                                <p class="release_song_name">BellBottom</p>
+                                <p class="release_date">
+                                    Aug,2021
+                                </p>
+                            </div>
+                            <div class="options">
+                                <label for="latest-release-checkbox3"><i class="fas fa-ellipsis-h"></i></label>
+                                <input type="checkbox" id="latest-release-checkbox3">
+                                <div class="latest-release-dropdown">
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-play-circle"></i> <a href="Single Playlist Screen.html">Play
+                                                Now</a></p>
+                                    </div>
+                                    
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-list-ul"></i> Add to Queue</p>
+                                    </div>
+                                    
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-music"></i> Add to playlist</p>
+                                    </div>
+                                    
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-info-circle"></i> Get Info</p>
+                                    </div>
+                                </div>
+                                <p>
+                                    5:25
+                                </p>
+                            </div>
+                        </div>
+                        <div id="releases">
+                            <div id="release_img">
+                                
+                                <i id="play_btn" class="fa fa-play" aria-hidden="true"></i>
+                                <img src="releases/4.jpg">
+                            </div>
+                            <div class="song-description">
+                                <p class="release_song_name">BellBottom</p>
+                                <p class="release_date">
+                                    Aug,2021
+                                </p>
+                            </div>
+                            <div class="options">
+                                <label for="latest-release-checkbox4"><i class="fas fa-ellipsis-h"></i></label>
+                                <input type="checkbox" id="latest-release-checkbox4">
+                                <div class="latest-release-dropdown">
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-play-circle"></i> <a href="Single Playlist Screen.html">Play
+                                                Now</a></p>
+                                    </div>
+                                    
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-list-ul"></i> Add to Queue</p>
+                                    </div>
+                                    
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-music"></i> Add to playlist</p>
+                                    </div>
+                                    
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-info-circle"></i> Get Info</p>
+                                    </div>
+                                </div>
+                                <p>
+                                    2:56
+                                </p>
+                            </div>
+                        </div>
+                        <div id="releases">
+                            <div id="release_img">
+                                
+                                <i id="play_btn" class="fa fa-play" aria-hidden="true"></i>
+                                <img src="releases/5.webp">
+                            </div>
+                            <div class="song-description">
+                                <p class="release_song_name">BellBottom</p>
+                                <p class="release_date">
+                                    Aug,2021
+                                </p>
+                            </div>
+                            <div class="options">
+                                <label for="latest-release-checkbox5"><i class="fas fa-ellipsis-h"></i></label>
+                                <input type="checkbox" id="latest-release-checkbox5">
+                                <div class="latest-release-dropdown">
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-play-circle"></i> <a href="Single Playlist Screen.html">Play
+                                                Now</a></p>
+                                    </div>
+                                    
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-list-ul"></i> Add to Queue</p>
+                                    </div>
+                                    
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-music"></i> Add to playlist</p>
+                                    </div>
+                                    
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-info-circle"></i> Get Info</p>
+                                    </div>
+                                </div>
+                                <p>
+                                    3:45
+                                </p>
+                            </div>
+                        </div>
+                        <div id="releases">
+                            <div id="release_img">
+                                
+                                <i id="play_btn" class="fa fa-play" aria-hidden="true"></i>
+                                <img src="releases/6.jpg">
+                            </div>
+                            <div class="song-description">
+                                <p class="release_song_name">BellBottom</p>
+                                <p class="release_date">
+                                    Aug,2021
+                                </p>
+                            </div>
+                            <div class="options">
+                                <label for="latest-release-checkbox6"><i class="fas fa-ellipsis-h"></i></label>
+                                <input type="checkbox" id="latest-release-checkbox6">
+                                <div class="latest-release-dropdown">
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-play-circle"></i> <a href="Single Playlist Screen.html">Play
+                                                Now</a></p>
+                                    </div>
+                                    
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-list-ul"></i> Add to Queue</p>
+                                    </div>
+                                    
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-music"></i> Add to playlist</p>
+                                    </div>
+                                    
+                                    <div class="drop-item">
+                                        <p><i class="fas fa-info-circle"></i> Get Info</p>
+                                    </div>
+                                </div>
+                                <p>
+                                5:40
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- This is the Popular Artist Section -->
+                <div class="popular_artists">
+                    <!-- Heading of the Popular Artist Section -->
+                    <p style="margin-left: 24px; font-size: 22px; margin-bottom: 10px;">
+                        Popular Artists
+                    </p>
+                    <!-- Each Circle contains popular artist which is clickable to next page -->
+                    <div class="popular">
+                        
+                        <div id="pop_artist" onclick="location.href='musicplaying.html'">
+                            <div id="pop_artist_img">
+                                
+                                <i id="play_btn" class="fa fa-play" aria-hidden="true"></i>
+                                <img src="artists/2.webp">
+                            </div>
+                            <div id="pop_artist_name">
+                                <p>Tanishk</p>
+                            </div>
+                        </div>
+                        <div id="pop_artist" onclick="location.href='musicplaying.html'">
+                            <div id="pop_artist_img">
+                                
+                                <i id="play_btn" class="fa fa-play" aria-hidden="true"></i>
+                                <img src="artists/2.webp">
+                            </div>
+                            <div id="pop_artist_name">
+                                <p>Tanishk</p>
+                            </div>
+                        </div>
+                        <div id="pop_artist" onclick="location.href='musicplaying.html'">
+                            <div id="pop_artist_img">
+                                
+                                <i id="play_btn" class="fa fa-play" aria-hidden="true"></i>
+                                <img src="artists/2.webp">
+                            </div>
+                            <div id="pop_artist_name">
+                                <p>Tanishk</p>
+                            </div>
+                        </div>
+                        <div id="pop_artist" onclick="location.href='musicplaying.html'">
+                            <div id="pop_artist_img">
+                                
+                                <i id="play_btn" class="fa fa-play" aria-hidden="true"></i>
+                                <img src="artists/2.webp">
+                            </div>
+                            <div id="pop_artist_name">
+                                <p>Tanishk</p>
+                            </div>
+                        </div>
+                        <div id="pop_artist" onclick="location.href='musicplaying.html'">
+                            <div id="pop_artist_img">
+                                
+                                <i id="play_btn" class="fa fa-play" aria-hidden="true"></i>
+                                <img src="artists/2.webp">
+                            </div>
+                            <div id="pop_artist_name">
+                                <p>Tanishk</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <!-- Theme Section -->
+                <div class="small_theme">
+                    <div class="station_cards">
+                        <div class="cards one"></div>
+                        <div class="cards two"></div>
+                        <div class="cards three"></div>
+                        <div class="cards four"></div>
+                        <div class="cards five">
+                            <div id="contents">
+                                <i class="fa fa-music" style="font-size: 38px;" aria-hidden="true"></i>
+                                <p style="margin-top: 7px; font-weight: 500;">Stations</p>
+                            </div>
+                            <div class="contents_back">
+                                <i class="fa fa-play" style="font-size: 36px;" aria-hidden="true"></i> 
+                                <p style="margin-top: 7px; font-weight: 500;">Play Now</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="themes">
+                        <img src="themes/pop.jpg">
+                        <div class="centered">Pop</div>
+                    </div>
+                    <div id="themes">
+                        <img src="themes/chill.jpg">
+                        <div class="centered">Chill</div>
+                    </div>
+                    <div id="themes">
+                        <img src="themes/rock.jpg">
+                        <div class="centered">Rock</div>
+                    </div>
+                    <div id="themes">
+                        <img src="themes/love.jpg">
+                        <div class="centered">Love</div>
+                    </div>
+                    <div id="themes">
+                        <img src="themes/workout.jpg">
+                        <div class="centered">Workout</div>
+                    </div>
+                    <div id="themes">
+                        <img src="themes/retro.jpg">
+                        <div class="centered">Retro</div>
+                    </div>    
+                </div>
+
+                <!-- More themes with animationn added -->
+                <div class="large_theme">
+                    <div id="large_thm">
+                        <img src="themes/party.jfif">
+                        <div class="centered">Party</div>
+                    </div>
+                    <div id="large_thm">
+                        <img src="themes/electronic.jpeg">
+                        <div class="centered">Electronic</div>
+                    </div>
+                    <div id="large_thm">
+                        <img src="themes/travel.jfif">
+                        <div class="centered">Travel</div>
+                    </div>
+                </div>
+
+                <!-- English Songs Section -->
+                <div class="latest_english">
+                    <p style="margin-left: 21px; font-size: 22px; margin-bottom: 10px;">
+                        Latest English
+                    </p>
+                    <div id="eh_music">
+                        <div id="music_box">
+                            <img src="english/1.webp">
+                            <div class="centered" style="visibility: hidden;">
+                                <i class="fa fa-play" style="font-size: 28px;" aria-hidden="true"></i>
+                            </div>
+                            <div id="song_name"><p>Onism</p></div>
+                            <div id="artist_name"><p>Aug 11,2021</p></div>
+                        </div>
+                        <div id="music_box">
+                            <img src="english/2.jpg">
+                            <div id="song_name"><p>Onism</p></div>
+                            <div id="artist_name"><p>Aug 11,2021</p></div>
+                        </div>
+                        <div id="music_box">
+                            <img src="english/3.jpg">
+                            <div id="song_name"><p>Onism</p></div>
+                            <div id="artist_name"><p>Aug 11,2021</p></div>
+                        </div>
+                        <div id="music_box">
+                            <img src="english/4.jpg">
+                            <div id="song_name"><p>Onism</p></div>
+                            <div id="artist_name"><p>Aug 11,2021</p></div>
+                        </div>
+                        <div id="music_box">
+                            <img src="english/5.jpg">
+                            <div id="song_name"><p>Onism</p></div>
+                            <div id="artist_name"><p>Aug 11,2021</p></div>
+                        </div>
+                        <div id="music_box">
+                            <img src="english/6.jpg">
+                            <div id="song_name"><p>Onism</p></div>
+                            <div id="artist_name"><p>Aug 11,2021</p></div>
+                        </div>
+                        <div id="music_box">
+                            <img src="english/7.webp">
+                            <div id="song_name"><p>Onism</p></div>
+                            <div id="artist_name"><p>Aug 11,2021</p></div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Hindi Songs Section -->
+                <div class="latest_hindi">
+                    <p style="margin-left: 21px; font-size: 22px; margin-bottom: 10px;">
+                        Latest Hindi
+                    </p>
+                    <div id="eh_music">
+                        <div id="music_box">
+                            <img src="hindi/1.jpg">
+                            <div id="song_name"><p>Onism</p></div>
+                            <div id="artist_name"><p>Aug 11,2021</p></div>
+                        </div>
+                        <div id="music_box">
+                            <img src="hindi/2.webp">
+                            <div id="song_name"><p>Onism</p></div>
+                            <div id="artist_name"><p>Aug 11,2021</p></div>
+                        </div>
+                        <div id="music_box">
+                            <img src="hindi/3.webp">
+                            <div id="song_name"><p>Onism</p></div>
+                            <div id="artist_name"><p>Aug 11,2021</p></div>
+                        </div>
+                        <div id="music_box">
+                            <img src="hindi/4.webp">
+                            <div id="song_name"><p>Onism</p></div>
+                            <div id="artist_name"><p>Aug 11,2021</p></div>
+                        </div>
+                        <div id="music_box">
+                            <img src="hindi/5.webp">
+                            <div id="song_name"><p>Onism</p></div>
+                            <div id="artist_name"><p>Aug 11,2021</p></div>
+                        </div>
+                        <div id="music_box">
+                            <img src="hindi/6.jpg">
+                            <div id="song_name"><p>Onism</p></div>
+                            <div id="artist_name"><p>Aug 11,2021</p></div>
+                        </div>
+                        <div id="music_box">
+                            <img src="hindi/7.webp">
+                            <div id="song_name"><p>Onism</p></div>
+                            <div id="artist_name"><p>Aug 11,2021</p></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Section of the Page contain Queue Box -->
+            <div id="main_right">
+                <!-- Queue title -->
+                <div class="queue_title">
+                    <h2 >Queue</h2>
+                    <div style="position: relative;" onclick="openQueue()">
+                        <span style="color: aquamarine; font-weight: 500px;">Queue</span>
+                        <i class="fa fa-angle-down" style="color: aquamarine;" aria-hidden="true"></i>
+                        
+                        <div id="queue_dropmenu" style="visibility: hidden; position: absolute; font-size: 14px; top: 25px; right: -10px; display: flex;flex-direction: column; background-color: rgb(32, 32, 32);align-items: flex-start;">    
+                            <div class="drop-item">
+                                <p>PlayLists</p>
+                            </div>
+                            
+                            <div class="drop-item">
+                                <p>Favorite Songs</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Queue Box -->
+                <div id="queues">
+                    <!-- Each Music box contains song queued in the list -->
+                    <div id="music">
+                        <div id="number">
+                            <p>01</p>
+                        </div>
+                        <div id="queue_song_img">
+                           <img src="releases/2.jpg">
+                        </div>
+                        <div id="queue_song_detail">
+                            <div id="queue_song_name">
+                                <p>Worry About Us</p>
+                            </div>
+                            <div id="artist_name">
+                                <p>Rose Lowe</p>
+                            </div>
+                        </div>
+                        <div id="queue_fav">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div id="music">
+                        <div id="number">
+                            <p>02</p>
+                        </div>
+                        <div id="queue_song_img">
+                           <img src="releases/4.jpg">
+                        </div>
+                        <div id="queue_song_detail">
+                            <div id="queue_song_name">
+                                <p>Worry About Us</p>
+                            </div>
+                            <div id="artist_name">
+                                <p>Rose Lowe</p>
+                            </div>
+                        </div>
+                        <div id="queue_fav">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div id="music">
+                        <div id="number">
+                            <p>03</p>
+                        </div>
+                        <div id="queue_song_img">
+                           <img src="releases/3.jpg">
+                        </div>
+                        <div id="queue_song_detail">
+                            <div id="queue_song_name">
+                                <p>Worry About Us</p>
+                            </div>
+                            <div id="artist_name">
+                                <p>Rose Lowe</p>
+                            </div>
+                        </div>
+                        <div id="queue_fav">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div id="music">
+                        <div id="number">
+                            <p>04</p>
+                        </div>
+                        <div id="queue_song_img">
+                           <img src="releases/8.webp">
+                        </div>
+                        <div id="queue_song_detail">
+                            <div id="queue_song_name">
+                                <p>Worry About Us</p>
+                            </div>
+                            <div id="artist_name">
+                                <p>Rose Lowe</p>
+                            </div>
+                        </div>
+                        <div id="queue_fav">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div id="music">
+                        <div id="number">
+                            <p>01</p>
+                        </div>
+                        <div id="queue_song_img">
+                           <img src="releases/2.jpg">
+                        </div>
+                        <div id="queue_song_detail">
+                            <div id="queue_song_name">
+                                <p>Worry About Us</p>
+                            </div>
+                            <div id="artist_name">
+                                <p>Rose Lowe</p>
+                            </div>
+                        </div>
+                        <div id="queue_fav">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div id="music">
+                        <div id="number">
+                            <p>02</p>
+                        </div>
+                        <div id="queue_song_img">
+                           <img src="releases/4.jpg">
+                        </div>
+                        <div id="queue_song_detail">
+                            <div id="queue_song_name">
+                                <p>Worry About Us</p>
+                            </div>
+                            <div id="artist_name">
+                                <p>Rose Lowe</p>
+                            </div>
+                        </div>
+                        <div id="queue_fav">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div id="music">
+                        <div id="number">
+                            <p>03</p>
+                        </div>
+                        <div id="queue_song_img">
+                           <img src="releases/3.jpg">
+                        </div>
+                        <div id="queue_song_detail">
+                            <div id="queue_song_name">
+                                <p>Worry About Us</p>
+                            </div>
+                            <div id="artist_name">
+                                <p>Rose Lowe</p>
+                            </div>
+                        </div>
+                        <div id="queue_fav">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div id="music">
+                        <div id="number">
+                            <p>04</p>
+                        </div>
+                        <div id="queue_song_img">
+                           <img src="releases/8.webp">
+                        </div>
+                        <div id="queue_song_detail">
+                            <div id="queue_song_name">
+                                <p>Worry About Us</p>
+                            </div>
+                            <div id="artist_name">
+                                <p>Rose Lowe</p>
+                            </div>
+                        </div>
+                        <div id="queue_fav">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div id="music">
+                        <div id="number">
+                            <p>01</p>
+                        </div>
+                        <div id="queue_song_img">
+                           <img src="releases/2.jpg">
+                        </div>
+                        <div id="queue_song_detail">
+                            <div id="queue_song_name">
+                                <p>Worry About Us</p>
+                            </div>
+                            <div id="artist_name">
+                                <p>Rose Lowe</p>
+                            </div>
+                        </div>
+                        <div id="queue_fav">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div id="music">
+                        <div id="number">
+                            <p>02</p>
+                        </div>
+                        <div id="queue_song_img">
+                           <img src="releases/4.jpg">
+                        </div>
+                        <div id="queue_song_detail">
+                            <div id="queue_song_name">
+                                <p>Worry About Us</p>
+                            </div>
+                            <div id="artist_name">
+                                <p>Rose Lowe</p>
+                            </div>
+                        </div>
+                        <div id="queue_fav">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div id="music">
+                        <div id="number">
+                            <p>03</p>
+                        </div>
+                        <div id="queue_song_img">
+                           <img src="releases/3.jpg">
+                        </div>
+                        <div id="queue_song_detail">
+                            <div id="queue_song_name">
+                                <p>Worry About Us</p>
+                            </div>
+                            <div id="artist_name">
+                                <p>Rose Lowe</p>
+                            </div>
+                        </div>
+                        <div id="queue_fav">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div id="music">
+                        <div id="number">
+                            <p>04</p>
+                        </div>
+                        <div id="queue_song_img">
+                           <img src="releases/8.webp">
+                        </div>
+                        <div id="queue_song_detail">
+                            <div id="queue_song_name">
+                                <p>Worry About Us</p>
+                            </div>
+                            <div id="artist_name">
+                                <p>Rose Lowe</p>
+                            </div>
+                        </div>
+                        <div id="queue_fav">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- This is the footer section of the website contains music controls and artist details -->
+        <footer>
+            <!-- Music Details and controls for Web View  -->
+            <div id="music_details">
+                <!-- Contains Artist Detial of playing music -->
+                <div id="artist_detail">
+                    <!-- artist image -->
+                    <div id="artist_image">
+                        
+                    </div>
+                    <!-- Song Dtails -->
+                    <div id="details">
+                        <!-- Song name -->
+                        <div id="player_song_name">
+                            <p></p>
+                        </div>
+                        <!-- Artist name -->
+                        <div id="player_artist_name">
+                            
+                        </div>
+                    </div>
+                    <!-- Options for song -->
+                    <div id="opt">
+                        <div id="fav">
+                            <i style="color: rgb(190, 190, 190);" class="fa fa-heart-o" aria-hidden="true"></i>
+                        </div>
+                        <div id="block">
+                            <i style="color: rgb(190, 190, 190);" class="fa fa-ban" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- Contains currently playing music details -->
+                <div id="music_playing">
+                    <!-- Controls for the music -->
+                    <div id="music_controls">
+                        <div>
+                            <i style="font-size: 22px; color: rgb(179, 178, 178);" onclick="shuffle()" class="fas fa-random"></i>
+                        </div>
+                        <div>
+                            <i style="font-size: 22px; color: rgb(190, 190, 190);"onclick="previous()" class="fa fa-step-backward" aria-hidden="true"></i>
+                        </div>
+                        <div id="play_pause">
+                            <i style="font-size: 38px; margin-top: -9px; color: whitesmoke" onclick="play()" class="fa fa-play-circle-o" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <i style="font-size: 22px; color: rgb(190, 190, 190);" onclick="next()" class="fa fa-step-forward" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <i style="font-size: 22px; color: rgb(190, 190, 190);" onclick="repeat()" class="fas fa-sync    "></i>
+                        </div>
+                    </div>
+                    <div id="music_bars">
+                        <div id="start_time">
+                            
+                        </div>
+                        <div id="bar">
+                            <div id="bar_inside">
+                            </div>
+                            <div id="bar_point">
+                            </div>
+                        </div>
+                        <div id="end_time">
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Containd some extra controls for music -->
+                <div id="options">
+                    <div>
+                        <i style="color: rgb(190, 190, 190);" class="fas fa-sliders-h"></i>
+                    </div>
+                    <div style="position: relative;">
+                        <i style="color: rgb(190, 190, 190);" onclick="deviceMenu()" class="fab fa-chromecast"></i>
+                        <div id="device_dropdown">    
+                            
+                        </div>
+                    </div>
+                    <div>
+                        <i style="color: rgb(190, 190, 190);" class="fas fa-volume-up"></i>
+                    </div>
+                    <div id="volume_bar">
+                        <div id="vol_inside">
+                        </div>
+                        <div id="vol_point">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Music details and controls for mobile view -->
+            <div id="mob_music_details">
+                <div id="artist_detail">
+                    <div id="artist_image">
+                        <img src="djsnake.jpg">
+                    </div>
+                </div>
+                <div id="music_playing">
+                    <div id="song_name">
+                        <p>Let Me Love You</p>
+                    </div>
+                    <div id="music_controls" style="margin-top: 18px;">
+                        <div>
+                            <i style="font-size: 20px; color: rgb(190, 190, 190);" class="fa fa-step-backward" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <i style="font-size: 36px; margin-top: -9px; color: whitesmoke" class="fa fa-pause-circle-o" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <i style="font-size: 20px; color: rgb(190, 190, 190);" class="fa fa-step-forward" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+                <div id="up_queue">
+                    <i onclick="queue(this)" class="fa fa-angle-up" style="color: white; font-size: 38px;" aria-hidden="true"></i>
+                </div>
+            </div>
+        </footer>
+    </div> 
+
+    <!-- Added Javascript -->
+    
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    <script>
+        window.onSpotifyWebPlaybackSDKReady = () => {
+            const token = localStorage.getItem('access_token');
+            const player = new Spotify.Player({
+                name: 'Web Playback SDK Quick Start Player',
+                getOAuthToken: cb => { cb(token); },
+                volume: 0.5
+            });
+
+            // Ready
+            player.addListener('ready', ({ device_id }) => {
+                localStorage.setItem('device_id',device_id);
+                refreshDevices();
+                console.log('Ready with Device ID', device_id);
+            });
+
+            // Not Ready
+            player.addListener('not_ready', ({ device_id }) => {
+                console.log('Device ID has gone offline', device_id);
+            });
+
+            player.addListener('initialization_error', ({ message }) => {
+                console.error(message);
+            });
+
+            player.addListener('authentication_error', ({ message }) => {
+                console.error(message);
+            });
+
+            player.addListener('account_error', ({ message }) => {
+                console.error(message);
+            });
+
+            player.connect();
+        }
+    </script>
+    <script src="index.js"></script>
+</body>
+</html>
+
+
+

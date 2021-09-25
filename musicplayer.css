@@ -1,0 +1,174 @@
+
+#main_left{
+    width: 65%;
+}
+
+#main_right{
+    width: 35%;
+}
+
+.artist_details{
+    position: sticky;
+    background-color: rgba(46, 45, 45, 0.692);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.artist_details img{
+    height: 260px;
+    width:250px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    mask-image: linear-gradient(to right, black 50%, transparent 80%);
+    -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+ 
+}
+
+.mob_artist_details{
+    display: none;
+}
+
+.artist_about{
+    margin:0px 40px;
+}
+
+.artist_about #title{
+    font-size: 51px;
+    font-weight: 500;
+}
+
+.artist_about #from p{
+    font-size: 13px;
+    color: rgb(168, 168, 168);
+    margin-top: 2px;
+}
+
+.artist_about #about p{
+    font-size: 13.5px;
+    margin-top: 8px;
+    color: rgb(207, 207, 207);
+}
+
+.artist_about #buttons{
+    margin-top: 20px;
+}
+
+.artist_about input{
+    margin-right: 20px;
+    padding: 6px 15px;
+    background: linear-gradient(45deg,rgba(76, 76, 228, 0.836) 20%,rgb(231, 102, 102));
+    outline: 0;
+    border: 0;
+    font-size: 17px;
+    box-shadow: 0px 0px 10px 1px rgb(105, 104, 101);
+    color: white;
+
+}
+
+
+.artist_about #tracks p{
+    font-size: 10px;
+    color: rgb(199, 199, 199);
+    margin-top: 6px;
+}
+
+.artist_hits{
+    width: 90%;
+    margin: auto;
+}
+
+#artist_music{
+    display: flex;
+    margin-bottom: 13px;
+    padding: 6px 10px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#artist_music:hover{
+    border: 1px solid white;
+	box-shadow: 0px 0px 10px 1px rgb(158, 158, 158);
+}
+
+#main_right{
+    overflow-y: hidden;
+}
+
+#similar_box{
+    
+    overflow-y: scroll;    
+    max-height: 30vh;
+    
+ 
+}
+
+#similar_box::-webkit-scrollbar{
+    display: none;
+}
+
+.latest{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+    width: 90%;
+    margin: auto;
+	justify-content: space-between;
+}
+.latest > div {
+    height: 100px;
+	width: 100%;
+	margin: 6px 0px;
+}
+.recently_played{
+    margin-top: 14px;
+    margin-bottom: 10px;
+    max-height: 10vh;
+
+}
+
+#similar_box{
+    margin: auto 6%;
+
+}
+
+
+#queues{
+    margin: auto 4%;
+    overflow-y: scroll;
+    max-height: 65vh;
+    padding: 10px 40px;
+}
+
+#main_queue h2{
+    margin-bottom: 14px;
+    margin-left: 10px;
+}
+
+#music{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    margin: 10px auto;
+    justify-content: space-between;
+}
+
+
+#queue_song_detail{
+    margin: 2% 8%;
+    text-align: left;
+    font-size: 14px;
+}
+
+#queue_fav{
+    display: flex;
+    align-items: center;
+    margin-left: 0%;
+}
+
+#main_queue{
+    display: none;
+}
