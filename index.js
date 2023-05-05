@@ -69,8 +69,8 @@ function gotoHome(){
 
 
 
-var client_id = '72253b95f803465f8014adaed3585731';
-var client_secret ='c1718e179b3a42d3af249d76710bd7ca';
+var client_id = '7b25cda4854e4c61b9562601819ebe2c';
+var client_secret ='1fb76ef9e1404961b144ed7e36bf66ab';
 var TOKEN ='https://accounts.spotify.com/api/token';
 
 var access_token = null;
