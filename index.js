@@ -107,8 +107,8 @@ function handleRedirect(){
 
 function fetchAccessToken(code){
 
-    client_id = '72253b95f803465f8014adaed3585731';
-    client_secret ='c1718e179b3a42d3af249d76710bd7ca';
+    client_id = '7b25cda4854e4c61b9562601819ebe2c';
+    client_secret ='1fb76ef9e1404961b144ed7e36bf66ab';
     let url = 'grant_type=authorization_code';
     url+='&code='+code;
     url+='&redirect_uri='+encodeURI('https://ayush8385.github.io/beats.github.io/');
